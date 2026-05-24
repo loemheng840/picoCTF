@@ -1,0 +1,2 @@
+command use is python ende.py -d flag.txt.en "$(cat password.txt)" // -d= decrypt, -e= encrypt
+picoCTF{4p0110_1n_7h3_h0us3_9c5f9bcf}

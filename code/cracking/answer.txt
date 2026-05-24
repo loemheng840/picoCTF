@@ -1,0 +1,25 @@
+cracking:1
+python level1.py -e level1.flag.txt.enc
+password:lela
+picoCTF{545h_r1ng1ng_fa343060}
+
+cracking:2
+python level2.py -e level2.flag.txt.enc
+chr(0x33) + chr(0x39) + chr(0x63) + chr(0x65)=39ce
+picoCTF{tr45h_51ng1ng_502ec42e}
+
+cracking:3
+python level3.py -e level3.flag.txt.enc
+password:2295
+picoCTF{m45h_fl1ng1ng_6f98a49f}
+
+cracking:4
+python level4.py -e level4.flag.txt.enc
+password:8b95
+picoCTF{fl45h_5pr1ng1ng_cf341ff1}
+
+cracking:5
+python level5.py -e level5.flag.txt.enc
+password:7e5f
+picoCTF{h45h_sl1ng1ng_40f26f81}
+
