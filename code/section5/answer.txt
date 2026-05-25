@@ -1,0 +1,24 @@
+Enhance:
+download file
+use command string or cat filename
+find flag:picoCTF{3nh4nc3d_d0a757bf}
+
+big zip
+download file
+use command grep -rl "pico"
+cd into folder and cat to read file:picoCTF{gr3p_15_m4g1c_ef8790dc}
+
+vult door trainning
+check code in java file and understand it 
+picoCTF{w4rm1ng_Up_w1tH_jAv4_000HPpgh7Ph}
+
+keygenme-py
+look at simple:
+    key_part_static1_trial = "picoCTF{1n_7h3_kk3y_of_"
+    key_part_dynamic1_trial = "xxxxxxxx"
+    key_part_static2_trial = "}"
+    key_full_template_trial = key_part_static1_trial + key_part_dynamic1_trial + key_part_static2_trial
+picoCTF{1n_7h3_kk3y_of_08c46aa4}
+
+
+
