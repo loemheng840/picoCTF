@@ -28,7 +28,8 @@ int main(int argc, char **argv){
   }
   
   fgets(flag,FLAGSIZE_MAX,f);
-  signal(SIGSEGV, sigsegv_handler); // Set up signal handler
+  signal(SIGSEGV, sigsegv_handler); 
+  signal(SIGBUS, sigsegv_handler);// Set up signal handler
   
   gid_t gid = getegid();
   setresgid(gid, gid, gid);
