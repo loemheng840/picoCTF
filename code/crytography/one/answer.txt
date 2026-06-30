@@ -1,0 +1,2 @@
+
+picoCTF{m3ssage_w1th_typ0}

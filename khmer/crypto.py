@@ -1,0 +1,43 @@
+from Crypto.Cipher import AES
+import hashlib
+
+# Genus 2 Hyperelliptic Curve Challenge
+p = 129403459552990578380563458675806698255602319995627987262273876063027199999999
+f_coeffs = [87455262955769204408909693706467098277950190590892613056321965035180446006909, 12974562908961912291194866717212639606874236186841895510497190838007409517645, 11783716142539985302405554361639449205645147839326353007313482278494373873961, 55538572054380843320095276970494894739360361643073391911629387500799664701622, 124693689608554093001160935345506274464356592648782752624438608741195842443294, 52421364818382902628746436339763596377408277031987489475057857088827865195813, 50724784947260982182351215897978953782056750224573008740629192419901238915128]
+G_u = [95640493847532285274015733349271558012724241405617918614689663966283911276425, 1]
+G_v = [23400917335266251424562394829509514520732985938931801439527671091919836508525]
+Q_u = [34277069903919260496311859860543966319397387795368332332841962946806971944007, 343503204040841221074922908076232301549085995886639625441980830955087919004, 1]
+Q_v = [102912018107558878490777762211244852581725648344091143891953689351031146217393, 65726604025436600725921245450121844689064814125373504369631968173219177046384]
+enc_flag = "f9d31f988581d7f9f06239bf26513851d32e73e7ca713aae437ce2e7419a46"
+
+print("This challenge requires SageMath to solve the discrete log on genus 2 hyperelliptic curves.")
+print("\nTo solve:")
+print("1. Install SageMath: https://doc.sagemath.org/html/en/installation/")
+print("2. Run: sage solve_crypto.sage")
+print("\nOr try brute-forcing small k values if the discrete log is weak...")
+
+# Try small k values (CTF challenges often use small secrets)
+print("\nAttempting brute force for small k values...")
+
+# We need to implement Jacobian arithmetic or use a simpler approach
+# For now, let's try some small values
+for k_test in range(1, 10000):
+    if k_test % 1000 == 0:
+        print(f"Trying k = {k_test}...")
+    
+    key = str(k_test).encode()
+    aes_key = hashlib.sha256(key).digest()[:16]
+    cipher_bytes = bytes.fromhex(enc_flag)
+    
+    try:
+        cipher = AES.new(aes_key, AES.MODE_ECB)
+        flag = cipher.decrypt(cipher_bytes)
+        # Check if it looks like a valid flag
+        if b'pico' in flag.lower() or b'CTF' in flag or b'{' in flag:
+            print(f"\n*** FOUND k = {k_test} ***")
+            print(f"Decrypted flag: {flag}")
+            break
+    except:
+        pass
+else:
+    print("\nBrute force failed. You need SageMath to solve this properly.")

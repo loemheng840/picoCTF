@@ -1,7 +1,6 @@
-# pyrefly: ignore [missing-import]
-from Crypto import bytes_to_long, long_to_bytes
+from Crypto.Util.number import bytes_to_long, long_to_bytes
 from secrets import token_bytes
-a
+
 key = bytes_to_long(token_bytes(126))
 
 def steplfsr(lfsr):
